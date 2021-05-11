@@ -1,0 +1,17 @@
+<apex:page>
+    <apex:includeLightning/>
+    <div id="lightningvf" />
+    <script>
+        $Lightning.use("c:lwcvf", function () {
+            $Lightning.createComponent("c:metadataCheck",
+                {},
+                "lightningvf",
+                function (cmp) {
+                    console.log("component was created");
+                    // do some stuff
+                }
+            );
+        });
+    </script>
+
+</apex:page>
