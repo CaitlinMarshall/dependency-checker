@@ -2,9 +2,15 @@
     <lightning-card title="Metadata Dependency Check">
 
         <h2 class="slds-p-around_small slds-text-heading_small slds-m-bottom_small">
-            Click the button to check for metadata dependencies on a specific managed package in your org.
+            Select the namespace for the package you want to check, then click the button to check for metadata
+            dependencies on a specific managed package in your org.
         </h2>
         <div class="slds-p-around_small">
+
+            <lightning-combobox name="namespace" label="Namespace" value={value} placeholder="Select Namespace"
+                options={options} onchange={handleChange}></lightning-combobox>
+
+
             <div class="slds-m-top_small slds-m-bottom_medium">
                 <lightning-button variant="brand" label="Check for Dependencies" title="Checks for dependencies"
                     onclick={handleGetDependencies}>

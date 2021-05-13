@@ -1,8 +1,14 @@
 public with sharing class DependencyController {
+    
     @AuraEnabled(cacheable=true)
+    public static List<PackageLicense> getNamespaces(){
+      
+        List<PackageLicense> allNamespaces = [SELECT NamespacePrefix FROM PackageLicense];
+        return allNamespaces;
+    }
+
     
-    
-    
+    @AuraEnabled(cacheable=true)
     public static String getDependencies(String endPoint, String method, String sid) {
         
         try
