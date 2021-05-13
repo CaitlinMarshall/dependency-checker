@@ -1,15 +1,4 @@
 import { LightningElement, wire } from 'lwc';
-import {
-    APPLICATION_SCOPE,
-    createMessageContext,
-    MessageContext,
-    publish,
-    releaseMessageContext,
-    subscribe,
-    unsubscribe,
-} from 'lightning/messageService';
-
-import dependencyChannel from '@salesforce/messageChannel/dependencyChannel__c';
 
 const columns = [
     { label: 'Component Type', fieldName: 'MetadataComponentType', type: 'text' },
@@ -22,12 +11,11 @@ const columns = [
 
 export default class MetadataCheck extends LightningElement {
 
-    @wire(MessageContext)
-    messageContext;
+
 
     handleClick(event) {
         const payload = {};
-        publish(this.messageContext, dependencyChannel, payload);
+
     }
 
 }
