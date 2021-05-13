@@ -1,4 +1,5 @@
 import { LightningElement, wire } from 'lwc';
+import getDependencies from '@salesforce/apex/DependencyController.getDependencies';
 
 const columns = [
     { label: 'Component Type', fieldName: 'MetadataComponentType', type: 'text' },
@@ -10,12 +11,19 @@ const columns = [
 ];
 
 export default class MetadataCheck extends LightningElement {
+    dependencies;
+    error;
 
 
-
-    handleClick(event) {
-        const payload = {};
-
+    handleGetDependencies() {
+        getDependencies()
+            .then(result => {
+                this.dependencies = result;
+            })
+            .catch(error => {
+                this.error = error;
+            })
     }
 
 }
+
