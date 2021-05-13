@@ -1,16 +1,21 @@
 <template>
-    <h2 class="slds-text-heading_small slds-m-bottom_small">
-        Click the button to check for metadata dependencies.
-    </h2>
-    <div class="slds-m-top_small slds-m-bottom_medium">
-        <lightning-button variant="brand" label="Check for Dependencies" title="Checks for dependencies"
-            onclick={handleGetDependencies}>
-        </lightning-button>
-    </div>
-    <template if:true={data}>
-        <div style="height: 300px;">
-            <lightning-datatable key-field="id" data={data} columns={columns}>
-            </lightning-datatable>
+    <lightning-card title="Metadata Dependency Check">
+
+        <h2 class="slds-p-around_small slds-text-heading_small slds-m-bottom_small">
+            Click the button to check for metadata dependencies on a specific managed package in your org.
+        </h2>
+        <div class="slds-p-around_small">
+            <div class="slds-m-top_small slds-m-bottom_medium">
+                <lightning-button variant="brand" label="Check for Dependencies" title="Checks for dependencies"
+                    onclick={handleGetDependencies}>
+                </lightning-button>
+            </div>
+            <template if:true={data}>
+                <div style="height: 300px;">
+                    <lightning-datatable key-field="id" data={data} columns={columns}>
+                    </lightning-datatable>
+                </div>
+            </template>
         </div>
-    </template>
+    </lightning-card>
 </template>
