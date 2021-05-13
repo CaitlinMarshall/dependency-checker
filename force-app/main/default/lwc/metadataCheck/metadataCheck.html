@@ -7,8 +7,10 @@
             onclick={handleGetDependencies}>
         </lightning-button>
     </div>
-    <div style="height: 300px;">
-        <lightning-datatable key-field="id" data={data} columns={columns}>
-        </lightning-datatable>
-    </div>
+    <template if:true={data}>
+        <div style="height: 300px;">
+            <lightning-datatable key-field="id" data={data} columns={columns}>
+            </lightning-datatable>
+        </div>
+    </template>
 </template>
