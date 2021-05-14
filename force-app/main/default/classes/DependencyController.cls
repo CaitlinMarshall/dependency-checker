@@ -9,12 +9,12 @@ public with sharing class DependencyController {
 
     
     @AuraEnabled(cacheable=true)
-    public static String getDependencies(String endPoint, String method, String sid) {
+    public static String getDependencies(String namespace) {
         
         try
         {
             HttpRequest toolingRequest = new HttpRequest();
-            toolingRequest.setEndpoint('callout:Dependency_Checker/services/data/v51.0/tooling/query/?q=select+MetadataComponentId,+MetadataComponentType,+MetadataComponentName,+RefMetadataComponentName,+RefMetadataComponentType+from+MetadataComponentDependency+where+RefMetadataComponentNamespace+=+\'newpbo\'+AND+MetadataComponentNamespace+=\'\'');
+            toolingRequest.setEndpoint('callout:Dependency_Checker/services/data/v51.0/tooling/query/?q=select+MetadataComponentId,+MetadataComponentType,+MetadataComponentName,+RefMetadataComponentName,+RefMetadataComponentType+from+MetadataComponentDependency+where+RefMetadataComponentNamespace+=+\''+namespace+'\'+AND+MetadataComponentNamespace+=\'\'');
             toolingRequest.setMethod('GET');
             Http http = new Http();
             HTTPResponse toolingResponse = http.send(toolingRequest);

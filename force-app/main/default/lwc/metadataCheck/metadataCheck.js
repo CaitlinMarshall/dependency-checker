@@ -1,6 +1,7 @@
-import { LightningElement, track } from 'lwc';
+import { LightningElement, track, wire } from 'lwc';
 import getDependencies from '@salesforce/apex/DependencyController.getDependencies';
 import getNamespaces from '@salesforce/apex/DependencyController.getNamespaces';
+import UserPreferencesCacheDiagnostics from '@salesforce/schema/User.UserPreferencesCacheDiagnostics';
 
 const columns = [
     { label: 'Component Id', fieldName: 'MetadataComponentId', type: 'text' },
@@ -28,7 +29,8 @@ export default class MetadataCheck extends LightningElement {
                         label: result[i].NamespacePrefix,
                         value: result[i].NamespacePrefix
                     };
-                    this.options = [...this.options, option];
+                    const allNamespaces = [...this.options, option];
+                    this.options = allNamespaces.filter(option => option.value != 'sf_com_apps');
 
                 }
 
@@ -42,19 +44,23 @@ export default class MetadataCheck extends LightningElement {
 
     }
 
+    handleChange(event) {
+        this.value = event.detail.value;
+    }
 
-    handleGetDependencies() {
-        alert("Button clicked!");
-        getDependencies()
-            .then(result => {
-                this.data = JSON.parse(result).records;
-                console.log(this.data);
 
-            })
-            .catch(error => {
-                this.error = error;
-                console.log(this.error);
-            })
+    @wire(getDependencies, { namespace: '$value' })
+    //alert("Button clicked!");
+    wiredDependencies({ error, data }) {
+        if (data) {
+            this.data = JSON.parse(data).records;
+            this.error = undefined;
+            console.log(this.data);
+        } else if (error) {
+            this.error = error;
+            this.data = undefined;
+            console.log(this.error);
+        }
     }
 
 }
