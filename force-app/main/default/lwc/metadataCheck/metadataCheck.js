@@ -7,7 +7,7 @@ const columns = [
     { label: 'Component Id', fieldName: 'MetadataComponentId', type: 'text' },
     { label: 'Component Name', fieldName: 'MetadataComponentName', type: 'text' },
     { label: 'Component Type', fieldName: 'MetadataComponentType', type: 'text' },
-    { label: 'Dependency Name', fieldName: 'RefMetadataComponentName', type: 'text' },
+    { label: 'Dependency Name (in Package)', fieldName: 'RefMetadataComponentName', type: 'text' },
     { label: 'Dependency Type', fieldName: 'RefMetadataComponentType', type: 'text' },
 
 ];
