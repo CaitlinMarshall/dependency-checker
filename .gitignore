@@ -6,6 +6,12 @@
 .sfdx/
 .localdevserver/
 
+# Other Stuff
+**/namedCredentials/**
+**/connectedApps/**
+**/authproviders/**
+**/profiles/**
+
 # LWC VSCode autocomplete
 **/lwc/jsconfig.json
 

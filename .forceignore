@@ -3,6 +3,11 @@
 #
 
 package.xml
+**/namedCredentials/**
+**/connectedApps/**
+**/authproviders/**
+**/appMenus/**
+**/profiles/**
 
 # LWC configuration files
 **/jsconfig.json
