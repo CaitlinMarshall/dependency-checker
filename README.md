@@ -1,18 +1,13 @@
-# Salesforce DX Project: Next Steps
+# Sample Lightning Component Using Metadata Dependency API (Tooling API)
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+This component can be used to check for dependencies in a customer org on items in a managed package, for example, if a customer is planning to uninstall a package and wants to understand any dependencies they will need to update before doing so. 
 
-## How Do You Plan to Deploy Your Changes?
+The component displays all the existing managed package namespaces in the org and allows the user to select which to check for dependencies. 
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+Note that this is just a PoC and several updates are needed for usability in a production context, i.e., pagination, table sort, etc. 
+Note that a max of 2,000 results can be returned. 
 
-## Configure Your Salesforce DX Project
-
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
-
-## Read All About It
-
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+# Metadata Dependence API Information: 
+* https://developer.salesforce.com/docs/atlas.en-us.api_tooling.meta/api_tooling/tooling_api_objects_metadatacomponentdependency.htm
+* More details (https://developer.salesforce.com/docs/atlas.en-us.api_tooling.meta/api_tooling/tooling_api_objects_metadatacomponentdependency_tooling_usage.htm)
+* https://developer.salesforce.com/blogs/2019/09/learn-moar-in-winter-20-with-metadata-dependency-queries.html
