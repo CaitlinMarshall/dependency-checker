@@ -4,7 +4,7 @@ This component can be used to check for dependencies in a customer org on items 
 
 The component displays all the existing managed package namespaces in the org and allows the user to select which to check for dependencies. It will then display a table of all the unmanaged items that depend on items in the selected namespace. 
 
-Note that this is just a PoC and several updates are needed for usability in a production context, i.e., pagination, table sort, etc. 
+Note that this is just a PoC and several updates are needed for usability in a production context, i.e., test code, pagination, table sort, etc. 
 Note that a max of 2,000 results can be returned. 
 
 # Metadata Dependency API Information: 
