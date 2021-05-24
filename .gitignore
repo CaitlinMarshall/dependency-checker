@@ -11,6 +11,7 @@
 **/connectedApps/**
 **/authproviders/**
 **/profiles/**
+demo-app/**
 
 # LWC VSCode autocomplete
 **/lwc/jsconfig.json
