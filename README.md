@@ -7,7 +7,7 @@ The component displays all the existing managed package namespaces in the org an
 Note that this is just a PoC and several updates are needed for usability in a production context, i.e., pagination, table sort, etc. 
 Note that a max of 2,000 results can be returned. 
 
-# Metadata Dependence API Information: 
+# Metadata Dependency API Information: 
 * https://developer.salesforce.com/docs/atlas.en-us.api_tooling.meta/api_tooling/tooling_api_objects_metadatacomponentdependency.htm
 * More details (https://developer.salesforce.com/docs/atlas.en-us.api_tooling.meta/api_tooling/tooling_api_objects_metadatacomponentdependency_tooling_usage.htm)
 * https://developer.salesforce.com/blogs/2019/09/learn-moar-in-winter-20-with-metadata-dependency-queries.html
