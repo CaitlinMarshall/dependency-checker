@@ -1,6 +1,11 @@
 public with sharing class DependencyController {
     
     @AuraEnabled(cacheable=true)
+    public static String getSessionID(){
+        return Page.SessionId.getContent().toString();
+    }
+
+    @AuraEnabled(cacheable=true)
     public static List<PackageLicense> getNamespaces(){
       
         List<PackageLicense> allNamespaces = [SELECT NamespacePrefix FROM PackageLicense];
@@ -14,8 +19,10 @@ public with sharing class DependencyController {
         try
         {
             HttpRequest toolingRequest = new HttpRequest();
-            toolingRequest.setEndpoint('callout:Dependency_Checker/services/data/v51.0/tooling/query/?q=select+MetadataComponentId,+MetadataComponentType,+MetadataComponentName,+RefMetadataComponentName,+RefMetadataComponentType+from+MetadataComponentDependency+where+RefMetadataComponentNamespace+=+\''+namespace+'\'+AND+MetadataComponentNamespace+=\'\'');
+            toolingRequest.setEndpoint(Url.getOrgDomainUrl().toExternalForm()
+            + '/services/data/v51.0/tooling/query/?q=select+MetadataComponentId,+MetadataComponentType,+MetadataComponentName,+RefMetadataComponentName,+RefMetadataComponentType+from+MetadataComponentDependency+where+RefMetadataComponentNamespace+=+\''+namespace+'\'+AND+MetadataComponentNamespace+=\'\'');
             toolingRequest.setMethod('GET');
+            toolingRequest.setHeader('Authorization', 'Bearer ' + getSessionID());
             Http http = new Http();
             HTTPResponse toolingResponse = http.send(toolingRequest);
             System.debug(JSON.serialize(toolingResponse.getBody()));
